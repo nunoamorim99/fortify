@@ -21,9 +21,9 @@
 
 ## Why this exists
 
-Months of work can now be rebuilt in days. In October 2026 a developer released free, open-source rebuilds of seven Adobe apps made with AI help — and **no Adobe code was decompiled**: they were rebuilt from public specs and observed behaviour. That changes what "protecting your product" means.
+Every product you ship carries the things that make it valuable: the algorithm that sets it apart, the pricing logic, the prompts, the data, the keys. Much of it ends up on the user's device or in the browser, where anyone curious can read it. With AI tools, someone can now reverse engineer a product, or rebuild it just by watching how it behaves, in days instead of months.
 
-Most developers have never heard of *obfuscation*, *app attestation* or *clean-room reimplementation*, and the protection tools are scattered across a dozen platforms. Fortify packs that knowledge into one Claude Code skill: it looks at **your** product, tells you honestly where it's exposed, and proposes the protections that fit your stack, budget and risk — explained so anyone can decide.
+So protection has to start while you build, not after launch. You have to decide what ships, what stays on the server, and how much a determined copier can learn from the outside. Most developers have never heard of *obfuscation*, *app attestation* or *clean-room reimplementation*, and the protection tools are scattered across a dozen platforms. Fortify puts that knowledge into one Claude Code skill. It looks at **your** product, tells you honestly where it's exposed and what a reverse engineer would learn, and proposes the protections that fit your stack, budget and risk, explained so anyone can make the call.
 
 It is honest about the limits: nothing that runs on a machine an attacker controls is uncrackable. Fortify raises the cost of copying where it matters, keeps your crown jewels off the client, and helps you build the things a clone can't copy.
 
@@ -69,30 +69,32 @@ Web front-ends · Node.js · Android · iOS · React Native · Flutter · Electr
 
 ## Install
 
-This repo is both the **skill** and a **plugin marketplace** that serves it. Pick whichever fits.
+Fortify is published in the **[`nunoamorim99`](https://github.com/nunoamorim99/claude-skills)** plugin marketplace, alongside Nuno Amorim's other plugins. Pick whichever install route fits.
 
 ### 1. As a plugin, via the marketplace — recommended
 
 Installs the skill **and** the three commands, and keeps them updatable:
 
 ```
-/plugin marketplace add nunoamorim99/fortify
-/plugin install fortify@nunoamorim99-fortify
+/plugin marketplace add nunoamorim99/claude-skills
+/plugin install fortify@nunoamorim99
 ```
 
-The commands appear in the `/` menu as `/fortify:scan`, `/fortify:audit` and `/fortify:harden`. Update later with `/plugin marketplace update nunoamorim99-fortify`.
+Already have the `nunoamorim99` marketplace? Skip the first line, run `/plugin marketplace update nunoamorim99`, then install.
+
+The commands appear in the `/` menu as `/fortify:scan`, `/fortify:audit` and `/fortify:harden`. Update later with `/plugin marketplace update nunoamorim99`.
 
 **Team-wide (project scope):** commit this to the project's `.claude/settings.json` so everyone who opens the project gets Fortify:
 
 ```json
 {
   "extraKnownMarketplaces": {
-    "nunoamorim99-fortify": {
-      "source": { "source": "github", "repo": "nunoamorim99/fortify" }
+    "nunoamorim99": {
+      "source": { "source": "github", "repo": "nunoamorim99/claude-skills" }
     }
   },
   "enabledPlugins": {
-    "fortify@nunoamorim99-fortify": true
+    "fortify@nunoamorim99": true
   }
 }
 ```
@@ -138,9 +140,7 @@ Claude Code (or claude.ai with skills enabled). The scanner needs only **Python 
 
 ```
 .
-├── .claude-plugin/
-│   └── marketplace.json              # marketplace catalog "nunoamorim99-fortify" (source: ./plugins/fortify)
-├── plugins/fortify/
+├── plugins/fortify/                  # listed in the "nunoamorim99" marketplace (nunoamorim99/claude-skills)
 │   ├── .claude-plugin/plugin.json    # plugin manifest
 │   ├── skills/fortify/               # THE SKILL — self-contained
 │   │   ├── SKILL.md                  # workflow, modes, guardrails
