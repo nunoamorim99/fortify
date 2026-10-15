@@ -1,0 +1,20 @@
+{
+  "name": "fortify",
+  "version": "1.0.0",
+  "description": "Assess how easily your product can be reverse engineered, cracked, scraped or cloned, then get a tailored protection plan in plain language, and apply it.",
+  "author": {
+    "name": "Nuno Amorim",
+    "email": "nuno22amorim@gmail.com"
+  },
+  "homepage": "https://github.com/nunoamorim99/fortify",
+  "repository": "https://github.com/nunoamorim99/fortify",
+  "license": "MIT",
+  "keywords": [
+    "security",
+    "reverse-engineering",
+    "obfuscation",
+    "anti-piracy",
+    "licensing",
+    "clone-protection"
+  ]
+}
