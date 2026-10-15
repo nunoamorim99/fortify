@@ -3,3 +3,4 @@ __pycache__/
 .DS_Store
 protection-assessment.md
 fortify-scan.json
+dist/

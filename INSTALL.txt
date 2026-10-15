@@ -1,0 +1,28 @@
+Fortify — installing
+
+You are reading this inside the drop-in bundle, so you already have the files you need.
+
+FULL install (skill + slash commands)
+  Unzip this bundle into your project's  .claude/  folder, so you end up with:
+    .claude/skills/fortify/
+    .claude/commands/fortify/*.md
+  Use ~/.claude/ instead to install for all your projects.
+  Restart Claude Code. Commands are namespaced: /fortify:audit
+
+SKILL ONLY (no slash commands, driven by natural language)
+  Copy just the  skills/fortify/  folder into  .claude/skills/
+
+FIRST RUN
+  /fortify:scan       quick, read-only look at what makes your product easy to copy
+  /fortify:audit      full assessment, writes protection-assessment.md (changes nothing)
+  /fortify:harden     applies the items you choose from the plan
+  Or just ask: "how exposed is this app to being cloned?"
+
+---
+Prefer automatic updates? Install via the marketplace instead and you get new versions
+without re-downloading:
+
+  /plugin marketplace add nunoamorim99/claude-skills
+  /plugin install fortify@nunoamorim99
+
+Latest bundles: https://github.com/nunoamorim99/fortify/releases/latest

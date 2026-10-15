@@ -1,0 +1,41 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Plugin manifest is valid and the plugin is complete
+        run: |
+          python3 - <<'PY'
+          import json, os, sys
+
+          src = 'plugins/fortify'
+          pj = json.load(open(os.path.join(src, '.claude-plugin', 'plugin.json')))
+          errors = []
+
+          if pj.get('name') != 'fortify':
+              errors.append(f"plugin.json name is {pj.get('name')!r}, expected 'fortify'")
+          if not pj.get('version'):
+              errors.append("plugin.json has no version")
+          for required in ('commands', 'skills/fortify/SKILL.md'):
+              if not os.path.exists(os.path.join(src, required)):
+                  errors.append(f"missing {src}/{required}")
+
+          if errors:
+              print("FAILED:", file=sys.stderr)
+              for e in errors:
+                  print(f"  - {e}", file=sys.stderr)
+              sys.exit(1)
+          print(f"OK  {pj['name']} {pj['version']}  (listed in the nunoamorim99 marketplace: nunoamorim99/claude-skills)")
+          PY
+
+      - name: Install bundles build and contain the right files
+        run: python3 scripts/build_bundles.py --check
