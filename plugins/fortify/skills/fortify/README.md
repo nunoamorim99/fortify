@@ -1,5 +1,8 @@
 <p align="center">
-  <img src="docs/assets/cover.png" alt="Fortify" width="100%" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/logo/fortify-horizontal-color-dark.svg">
+    <img src="docs/assets/logo/fortify-horizontal-color-light.svg" alt="Fortify" height="96">
+  </picture>
 </p>
 
 # Fortify — skill reference
@@ -72,4 +75,4 @@ Tool names and prices change. The skill checks the current status of paid or nic
 
 ## Cover art
 
-`docs/assets/cover.png` is the designed cover. `docs/cover-prompts.md` has Higgsfield prompts for marketing variants in the suite's style.
+`docs/assets/logo/` holds the logo lockups shown at the top (dark and light). `docs/assets/cover.png` is the designed cover, kept as the social preview. `docs/cover-prompts.md` has Higgsfield prompts for marketing variants in the suite's style.

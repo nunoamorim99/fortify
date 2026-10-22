@@ -1,8 +1,9 @@
 <p align="center">
-  <img src="assets/cover.png" alt="Fortify — know what can be copied, protect what matters" width="100%" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo/fortify-horizontal-color-dark.svg">
+    <img src="assets/logo/fortify-horizontal-color-light.svg" alt="Fortify" height="96">
+  </picture>
 </p>
-
-<h1 align="center">Fortify</h1>
 
 <p align="center">
   <b>Find out how easily your product can be reverse engineered, cracked, scraped or cloned —<br/>
@@ -159,7 +160,7 @@ Claude Code (or claude.ai with skills enabled). The scanner needs only **Python 
 ├── scripts/build_bundles.py         # builds the release zips from the plugin
 ├── .github/workflows/               # validate (every push) · release (on a v* tag)
 ├── INSTALL.txt                      # ships inside the drop-in zip
-├── assets/                           # cover for this page (+ its generator)
+├── assets/                           # logo lockups (logo/) · social-preview cover (+ its generator)
 ├── LICENSE
 └── README.md
 ```
